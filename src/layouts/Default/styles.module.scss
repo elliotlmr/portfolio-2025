@@ -1,0 +1,144 @@
+@import "../../mixins.scss";
+
+@keyframes open {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes close {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.layout {
+    .scrollbar {
+        position: fixed;
+        transition: all .2s ease;
+
+        &.top,
+        &.bot {
+            height: 4px;
+            width: 100vw;
+            width: 100dvw;
+            background-color: var(--grey-400);
+        }
+
+        &.top {
+            top: 0;
+            left: 0;
+        }
+
+        &.bot {
+            bottom: 0;
+            left: 0;
+        }
+
+        &.right,
+        &.left {
+            width: 4px;
+            height: 100vh;
+            height: 100dvh;
+            background-color: var(--grey-400);
+        }
+
+        &.right {
+            bottom: 0;
+            right: 0;
+        }
+
+        &.left {
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 16px;
+
+        @include mobile {
+            p {
+                font-size: .7rem;
+            }
+        }
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 16px;
+
+        .help {
+            cursor: pointer;
+
+            svg {
+                fill: currentColor;
+                color: var(--grey-500);
+                height: 32px;
+                width: 32px;
+                transition: color .2s ease;
+            }
+
+            &:hover {
+                svg {
+                    color: var(--grey-300);
+                }
+            }
+        }
+
+        .modale {
+            position: absolute;
+            bottom: 100%;
+            left: 64px;
+            transform-origin: left;
+            animation: open .2s ease both;
+            border: 1px solid var(--grey-500);
+            padding: 16px;
+            backdrop-filter: blur(48px);
+            text-shadow: var(--grey-100) 1px 1px 1px;
+            max-width: 800px;
+            line-height: 150%;
+            margin: 0 16px 0 0;
+
+            &.close {
+                animation: close .2s ease both;
+            }
+        }
+    }
+
+    .next {
+        position: fixed;
+        right: 16px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

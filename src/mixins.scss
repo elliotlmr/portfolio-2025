@@ -1,0 +1,49 @@
+/****
+ * Mixins
+ * Toutes les fonctions qui peuvent être réutilisées dans SCSS
+ ****/
+
+/** Query pour les mobiles */
+@mixin mobile() {
+	@media screen and (max-width: 768px) {
+		& {
+			@content;
+		}
+	}
+}
+
+/** Query pour les tablettes */
+@mixin tablet() {
+	@media screen and (min-width: 768px) and (max-width: 992px) {
+		& {
+			@content;
+		}
+	}
+}
+
+/** Query pour les mobiles et tablettes */
+@mixin mobile_and_tablet() {
+	@media screen and (max-width: 992px) {
+		& {
+			@content;
+		}
+	}
+}
+
+/** Query pour les laptop */
+@mixin laptop() {
+	@media screen and (min-width: 992px) and (max-width: 1200px) {
+		& {
+			@content;
+		}
+	}
+}
+
+/** Query custom */
+@mixin custom_screen($min, $max) {
+	@media screen and (min-width: $min) and (max-width: $max) {
+		& {
+			@content;
+		}
+	}
+}

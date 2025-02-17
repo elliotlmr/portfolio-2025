@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  line-height: 1;
+  font-weight: 400;
+
+  color: #262626;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --grey-500: #0D0D0D;
+  --grey-400: #262626;
+  --grey-300: #525957;
+  --grey-200: #A3A6A1;
+  --grey-100: #F0F2F2;
+
+  --water-500: #012340;
+  --water-400: #03588C;
+  --water-300: #049DD9;
+  --water-200: #049DBF;
+  --water-100: #04C4D9;
+
+  --fire-500: #730A0A;
+  --fire-400: #D92211;
+  --fire-300: #BF4904;
+  --fire-200: #F27405;
+  --fire-100: #F28E13;
+
+  --leaf-500: #35481A;
+  --leaf-400: #648831;
+  --leaf-300: #80AE3F;
+  --leaf-200: #93C848;
+  --leaf-100: #9DD54D;
+
+  --stone-500: #402C21;
+  --stone-400: #735340;
+  --stone-300: #A67F68;
+  --stone-200: #D9B19A;
+  --stone-100: #d7c4ba;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--grey-100);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+h1,
+h2 {
+  font-family: "Major Mono Display", monospace;
+}
+
+@import "./mixins.scss";

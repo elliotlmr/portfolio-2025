@@ -1,0 +1,242 @@
+@import "../../../mixins.scss";
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        transform: translateX(124px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromTop {
+    from {
+        transform: translateY(-124px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modale {
+    animation: fade .4s ease both;
+    transition: background .2s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    background: #F0F2F250;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    padding: 16px 16px 12px;
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+        padding: 0;
+        background: var(--grey-100);
+    }
+
+    .close {
+        animation: fromRight .2s ease both .2s;
+        transition: border-color .2s ease;
+        cursor: pointer;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        height: 128px;
+        width: 128px;
+        border-radius: 64px;
+        border: 4px solid var(--grey-400);
+        background: none;
+
+        @include mobile {
+            height: 64px;
+            width: 64px;
+        }
+
+        &:hover {
+            border-color: var(--fire-300);
+
+            svg {
+                color: var(--fire-300);
+            }
+        }
+
+        svg {
+            transition: color .2s ease;
+            fill: currentColor;
+            color: var(--grey-400);
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .selection {
+        margin: 150px 0 16px;
+        padding: 16px;
+        border: 4px solid var(--grey-400);
+        flex: 1;
+        overflow-y: auto;
+        background: var(--grey-100);
+        display: flex;
+        flex-direction: column;
+
+        @include mobile {
+            border: none;
+        }
+
+        .header {
+            margin: 0 0 8px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin: 0 0 8px;
+            }
+
+            .employer {
+                font-size: 1.2rem;
+                margin: 0 0 8px;
+
+                span {
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 8px;
+        }
+
+        .answer {
+            margin: 0 0 16px;
+        }
+
+        .numbers {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            .number {
+                margin: 16px;
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .data {
+                    font-size: 2rem;
+                    font-weight: 600;
+                    margin: 0 0 8px;
+                }
+
+                .legend {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .footer {
+            margin: auto 0 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .carousel {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        overflow-x: auto;
+        padding: 0 0 4px;
+
+        @include mobile {
+            padding: 0 16px 4px;
+        }
+
+        &::-webkit-scrollbar {
+            height: 4px;
+            width: 4px;
+
+            &-track {
+                background: var(--grey-200);
+            }
+
+            &-thumb {
+                height: 4px;
+                background: var(--grey-400);
+            }
+        }
+
+        .card {
+            transition: opacity .2s ease, border-color .2s ease;
+            width: 256px;
+            border: 4px solid var(--grey-400);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 16px;
+            margin: 0 16px 0 0;
+            cursor: pointer;
+            background-color: var(--grey-100);
+            flex-shrink: 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+
+            p {
+                margin: 16px 0 0 0;
+            }
+
+            svg {
+                transition: color .2s ease;
+                width: 96px;
+                height: 96px;
+                fill: currentColor;
+                color: var(--grey-400);
+            }
+
+            &.selected {
+                border-color: var(--leaf-400);
+
+                svg {
+                    color: var(--leaf-400);
+                }
+            }
+
+            &:hover {
+                opacity: .6;
+            }
+        }
+    }
+}

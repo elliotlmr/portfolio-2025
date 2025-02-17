@@ -1,0 +1,149 @@
+@import "../../mixins.scss";
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        transform: translateX(124px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromTop {
+    from {
+        transform: translateY(-124px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modale {
+    animation: fade .4s ease both;
+    transition: background .2s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    background: #F0F2F250;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+        padding: 0;
+        background: var(--grey-100);
+    }
+
+    .close {
+        animation: fromRight .2s ease both .2s;
+        transition: border-color .2s ease;
+        cursor: pointer;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        height: 128px;
+        width: 128px;
+        border-radius: 64px;
+        border: 4px solid var(--grey-400);
+        background: none;
+
+        @include mobile {
+            height: 64px;
+            width: 64px;
+        }
+
+        &:hover {
+            border-color: var(--fire-300);
+
+            svg {
+                color: var(--fire-300);
+            }
+        }
+
+        svg {
+            transition: color .2s ease;
+            fill: currentColor;
+            color: var(--grey-400);
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .description {
+        animation: fromTop .2s ease both;
+        border: 4px solid var(--grey-400);
+        width: 100%;
+        margin: 144px 0 16px 0;
+        padding: 12px;
+        background-color: var(--grey-100);
+
+        @include mobile {
+            padding: 16px;
+            border: none;
+            margin: 80px 0 16px 0;
+        }
+
+        p {
+            margin: 0 0 16px 0;
+            font-size: 1.2rem;
+
+            &:first-child {
+                color: var(--stone-300);
+                font-size: 1.5rem;
+            }
+        }
+
+        @include laptop {
+            p {
+                margin: 0 0 8px 0;
+                font-size: .8rem;
+
+                &:first-child {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        @include tablet {
+            p {
+                margin: 0 0 8px 0;
+                font-size: .8rem;
+
+                &:first-child {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        @include mobile {
+            p {
+                margin: 0 0 8px 0;
+                font-size: .8rem;
+
+                &:first-child {
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,161 @@
+@import "../../mixins.scss";
+
+@keyframes fromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bottom {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.section {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 0;
+
+    .container {
+        width: fit-content;
+        max-width: 1240px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &.visible {
+            h1 {
+                animation: fromBottom .4s ease both;
+            }
+        }
+
+        h1 {
+            animation: fadeOut .4s ease both;
+            font-size: 12rem;
+            text-align: center;
+            opacity: 0;
+
+            @include laptop {
+                font-size: 10rem;
+            }
+
+            @include tablet {
+                font-size: 8rem;
+            }
+
+            @include mobile {
+                font-size: 3.5rem;
+            }
+
+            span {
+                transition: all .2s ease;
+                text-shadow: 5px 5px 0 var(--grey-200);
+
+                &:hover {
+                    color: var(--grey-200);
+                    text-shadow: 5px 5px 0 var(--grey-400);
+                }
+            }
+
+            &.top {
+
+                .before {
+                    display: inline-block;
+                    animation: fromLeft .8s ease both;
+                    transition: color .2s ease;
+
+                    &:hover {
+                        color: var(--fire-300);
+                    }
+                }
+
+                .center {
+                    display: inline-block;
+                    animation: fade .8s ease both;
+                    transition: color .2s ease;
+
+                    &:hover {
+                        color: var(--water-400);
+                    }
+                }
+
+                .after {
+                    display: inline-block;
+                    animation: fromRight .8s ease both;
+                    transition: color .2s ease;
+
+                    &:hover {
+                        color: var(--fire-300);
+                    }
+                }
+
+            }
+
+            &.bot {
+                animation: bottom .8s ease both .8s;
+
+                & span {
+                    transition: color .2s ease;
+
+                    &:hover {
+                        color: var(--leaf-400);
+                    }
+                }
+            }
+
+        }
+    }
+}

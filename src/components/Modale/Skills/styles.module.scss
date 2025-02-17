@@ -1,0 +1,205 @@
+@import "../../../mixins.scss";
+
+@keyframes skillIn {
+    from {
+        flex: 0 0 0;
+        margin: 0 0 0;
+        padding: 16px 0;
+        border-left-width: 0;
+        border-right-width: 0;
+    }
+
+    to {
+        flex: 0 0 calc((100% - 32px) / 3);
+        margin: 0 8px 0;
+        padding: 16px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+    }
+}
+
+@keyframes skillOut {
+    from {
+        flex: 0 0 calc((100% - 32px) / 3);
+        margin: 0 8px 0;
+        padding: 16px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+    }
+
+    to {
+        flex: 0 0 0;
+        margin: 0 0 0;
+        padding: 16px 0;
+        border-left-width: 0;
+        border-right-width: 0;
+    }
+}
+
+@keyframes skillInMobile {
+    from {
+        flex: 0 0 0;
+        margin: 0 0 0;
+        padding: 16px 0;
+        border-left-width: 0;
+        border-right-width: 0;
+    }
+
+    to {
+        flex: 0 0 calc(100% - 32px);
+        margin: 0 8px 0;
+        padding: 16px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+    }
+}
+
+@keyframes skillOutMobile {
+    from {
+        flex: 0 0 calc(100% - 32px);
+        margin: 0 8px 0;
+        padding: 16px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+    }
+
+    to {
+        flex: 0 0 0;
+        margin: 0 0 0;
+        padding: 16px 0;
+        border-left-width: 0;
+        border-right-width: 0;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        transform: translateX(124px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.container {
+    position: relative;
+    flex: 1;
+
+    .button {
+        transition: opacity .2s ease;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: calc((100% - 32px) / 3);
+        opacity: 0;
+        z-index: 10;
+        border: none;
+        cursor: pointer;
+
+        @include mobile {
+            width: 40%;
+            opacity: 0.1;
+        }
+
+        svg {
+            fill: currentColor;
+            color: var(--grey-100);
+            height: 96px;
+            width: 96px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.previous {
+            background: linear-gradient(to right, var(--grey-400), #F0F2F220 90%, #F0F2F200);
+            left: 0;
+
+            @include mobile {
+                left: 16px;
+            }
+        }
+
+        &.next {
+            background: linear-gradient(to left, var(--grey-400), #F0F2F220 90%, #F0F2F200);
+            right: 0;
+
+            @include mobile {
+                right: 16px;
+            }
+        }
+    }
+
+    .skills {
+        animation: fromRight .4s ease both .4s;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        overflow-x: hidden;
+        height: 100%;
+
+        .skill {
+            animation: skillIn .1s linear both;
+            flex: 0 0 calc((100% - 32px) / 3);
+            overflow: hidden;
+            border: 4px solid var(--grey-400);
+            flex-shrink: 0;
+            margin: 0 8px 0;
+            padding: 16px;
+            background-color: var(--grey-100);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            @include mobile {
+                animation: skillInMobile .1s linear both;
+                flex: 0 0 calc(100% - 32px);
+            }
+
+            &.hide {
+                animation: skillOut .1s linear both;
+
+                @include mobile {
+                    animation: skillOutMobile .1s linear both;
+                    flex: 0 0 calc(100% - 32px);
+                }
+            }
+
+            svg {
+                width: 48px;
+                height: 48px;
+                fill: currentColor;
+                color: var(--fire-300);
+                margin: auto 0 0 auto;
+                opacity: 0.1;
+            }
+
+            .title {
+                line-height: 120%;
+                height: max-content;
+                font-size: 2rem;
+
+                span {
+                    font-family: "Major Mono Display", monospace;
+                }
+
+                @include laptop {
+                    font-size: 1.5rem;
+                }
+
+                @include tablet {
+                    font-size: 1.2rem;
+                }
+
+                @include mobile {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

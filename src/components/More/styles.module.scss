@@ -1,0 +1,57 @@
+@import "../../mixins.scss";
+
+.section {
+    position: relative;
+    width: 100vw;
+    width: 100dvw;
+    height: 150vh;
+    height: 150dvh;
+
+    .container {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        height: 100dvh;
+        padding: 64px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            cursor: pointer;
+            font-size: 12rem;
+            text-align: center;
+            line-height: 140%;
+            vertical-align: center;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            margin: 0 6px 14px 0;
+            white-space: nowrap;
+
+            @include mobile {
+                font-size: 8rem;
+            }
+
+            & span {
+                display: inline-block;
+                transition: all .2s ease;
+                text-shadow: 5px 5px 0 var(--water-400);
+
+                &:hover {
+                    color: var(--water-400);
+                    text-shadow: 5px 5px 0 var(--grey-400);
+                }
+            }
+
+            &.open {
+                transform: rotate(-35deg);
+                opacity: .1;
+
+                & span {
+                    transform: rotate(35deg);
+                }
+            }
+        }
+    }
+}
