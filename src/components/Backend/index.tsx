@@ -12,7 +12,6 @@ import Hono from '@/assets/techs/hono.svg';
 import Express from '@/assets/techs/express.svg';
 import Mongo from '@/assets/techs/mongo.svg';
 import Postgres from '@/assets/techs/postgres.svg';
-import API from '@/assets/techs/api.svg';
 import Strapi from '@/assets/techs/strapi.svg';
 import Firebase from '@/assets/techs/firebase.svg';
 
@@ -72,11 +71,6 @@ const Backend = () => {
       icon: Nodejs,
       experience: 2.5,
     },
-    // {
-    //   title: 'API REST',
-    //   icon: API,
-    //   experience: 3,
-    // },
     {
       title: 'Linux',
       icon: Linux,
