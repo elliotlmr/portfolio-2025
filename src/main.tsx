@@ -6,7 +6,7 @@ import AnimatedCursor from 'react-animated-cursor';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* <AnimatedCursor
+    <AnimatedCursor
       innerSize={24}
       innerScale={0.5}
       innerStyle={{
@@ -41,7 +41,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         'svg',
       ]}
       trailingSpeed={12}
-    /> */}
+    />
     <App />
   </React.StrictMode>
 );
