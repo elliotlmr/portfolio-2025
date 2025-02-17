@@ -143,19 +143,47 @@
                 }
 
             }
+        }
 
-            &.bot {
-                animation: bottom .8s ease both .8s;
+        .bot {
+            animation: bottom .8s ease both .8s;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
 
-                & span {
-                    transition: color .2s ease;
+            .entry {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0 8px;
+                text-decoration: none;
 
-                    &:hover {
-                        color: var(--leaf-400);
+                svg {
+                    height: 96px;
+                    width: 96px;
+                    fill: currentColor;
+                    color: var(--grey-400);
+
+                    @include mobile {
+                        height: 48px;
+                        width: 48px;
+                    }
+                }
+
+                .title {
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    text-decoration: none;
+                    color: var(--grey-400);
+
+                    @include mobile {
+                        font-size: 1rem;
                     }
                 }
             }
-
         }
     }
 }

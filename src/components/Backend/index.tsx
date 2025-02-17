@@ -72,11 +72,11 @@ const Backend = () => {
       icon: Nodejs,
       experience: 2.5,
     },
-    {
-      title: 'API REST',
-      icon: API,
-      experience: 3,
-    },
+    // {
+    //   title: 'API REST',
+    //   icon: API,
+    //   experience: 3,
+    // },
     {
       title: 'Linux',
       icon: Linux,

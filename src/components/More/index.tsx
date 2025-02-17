@@ -11,6 +11,7 @@ import SCRUM from '@/assets/techs/scrum.svg';
 import Master from '@/assets/techs/master.svg';
 import Turborepo from '@/assets/techs/turborepo.svg';
 import Github from '@/assets/techs/github.svg';
+import Communication from '@/assets/techs/communication.svg';
 
 const More = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -99,6 +100,11 @@ const More = () => {
     {
       title: 'Monorepo Management',
       icon: Turborepo,
+      experience: 2.5,
+    },
+    {
+      title: 'Communication',
+      icon: Communication,
       experience: 2.5,
     },
   ];

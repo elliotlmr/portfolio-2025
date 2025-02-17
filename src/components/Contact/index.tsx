@@ -1,21 +1,24 @@
 import { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
+import LinkedIn from '@/assets/contact/linkedin.svg';
+import GitHub from '@/assets/techs/github.svg';
+import Mail from '@/assets/contact/mail.svg';
 
 const data = [
   {
+    title: 'Email',
+    icon: Mail,
+    link: 'mailto:lemaireelliot@gmail.com',
+  },
+  {
     title: 'LinkedIn',
-    icon: null,
-    link: '',
+    icon: LinkedIn,
+    link: 'https://www.linkedin.com/in/elliot-lemaire/',
   },
   {
-    title: '',
-    icon: null,
-    link: '',
-  },
-  {
-    title: '',
-    icon: null,
-    link: '',
+    title: 'GitHub',
+    icon: GitHub,
+    link: 'https://github.com/elliotlmr',
   },
 ];
 
@@ -64,6 +67,21 @@ const Contact = () => {
           <span>c</span>
           <span>t</span>
         </h1>
+        <div className={styles.bot}>
+          {data.map((entry, i) => {
+            return (
+              <a
+                className={styles.entry}
+                href={entry.link}
+                target='_blank'
+                key={i}
+              >
+                {entry.icon && <entry.icon />}
+                <p className={styles.title}>{entry.title}</p>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
