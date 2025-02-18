@@ -63,10 +63,7 @@ const Default = ({ children }: Props) => {
         <div className={styles.help} onClick={handleModale}>
           <Help />
         </div>
-        <p>
-          {window.innerHeight} {window.visualViewport?.height}{' '}
-          {document.documentElement.clientHeight}
-        </p>
+        <p className={styles.secret}>41°42'53.1"N 12°19'04.0"E - Apr 2018.</p>
         {help && (
           <div className={`${styles.modale} ${transition && styles.close}`}>
             This portfolio is still a work in progress. All the projects I

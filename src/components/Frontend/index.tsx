@@ -126,7 +126,7 @@ const Frontend = () => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${open && styles.open}`}>
         <h1
           className={`${styles.title} ${open && styles.open}`}
           onClick={() => setOpen(!open)}

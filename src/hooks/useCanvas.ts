@@ -291,7 +291,9 @@ const useCanvas = () => {
   const resize = useCallback(() => {
     if (canvas) {
       // Resize canvas to fit the window
-      canvas.width = window.innerWidth;
+      canvas.width = window.visualViewport
+        ? window.visualViewport.width
+        : window.innerWidth;
       canvas.height = window.visualViewport
         ? window.visualViewport.height
         : document.documentElement.clientHeight;
