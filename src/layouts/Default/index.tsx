@@ -63,6 +63,10 @@ const Default = ({ children }: Props) => {
         <div className={styles.help} onClick={handleModale}>
           <Help />
         </div>
+        <p>
+          {window.innerHeight} {window.visualViewport?.height}{' '}
+          {document.documentElement.clientHeight}
+        </p>
         {help && (
           <div className={`${styles.modale} ${transition && styles.close}`}>
             This portfolio is still a work in progress. All the projects I
