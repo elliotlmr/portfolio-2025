@@ -292,7 +292,9 @@ const useCanvas = () => {
     if (canvas) {
       // Resize canvas to fit the window
       canvas.width = window.innerWidth;
-      canvas.height = document.documentElement.clientHeight;
+      canvas.height = window.visualViewport
+        ? window.visualViewport.height
+        : document.documentElement.clientHeight;
       canvas.style.top = '0';
       canvas.style.background = '#0e0e0e50';
 
