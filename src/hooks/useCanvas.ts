@@ -295,8 +295,6 @@ const useCanvas = () => {
       canvas.height = window.visualViewport
         ? window.visualViewport.height
         : document.documentElement.clientHeight;
-      canvas.style.top = '0';
-      canvas.style.background = '#0e0e0e50';
 
       centerXRef.current = canvas.width / 2;
       centerYRef.current = canvas.height / 2;
