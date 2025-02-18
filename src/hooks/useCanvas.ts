@@ -294,6 +294,7 @@ const useCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = document.documentElement.clientHeight;
       canvas.style.top = '0';
+      canvas.style.background = 'red';
 
       centerXRef.current = canvas.width / 2;
       centerYRef.current = canvas.height / 2;
