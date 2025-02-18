@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 import Close from '../../assets/close.svg';
 import Skills from './Skills';
 import Technologies from './Technologies';
+import { useEffect } from 'react';
 
 type Props = {
   open: boolean;
@@ -18,6 +19,14 @@ const Modale = ({
   skills,
   technologies,
 }: Props) => {
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : 'auto';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [open]);
+
   return (
     open && (
       <div className={`${styles.modale} ${open && styles.open}`}>

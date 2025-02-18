@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import Close from '@/assets/close.svg';
 import Computer from '@/assets/projects/computer.svg';
@@ -128,6 +128,14 @@ const projects: Project[] = [
 
 const Modale = ({ open, setOpen }: Props) => {
   const [selected, setSelected] = useState<Project | null>(projects[0]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : 'auto';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [open]);
 
   return (
     open && (

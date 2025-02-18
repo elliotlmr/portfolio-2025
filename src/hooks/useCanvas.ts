@@ -21,7 +21,7 @@ const useCanvas = () => {
     canvas ? canvas.width / 2 : window.innerWidth / 2
   );
   const centerYRef = useRef<number>(
-    canvas ? canvas.height / 2 : window.innerHeight / 2
+    canvas ? canvas.height / 2 : document.documentElement.clientHeight / 2
   );
 
   const radiusRef = useRef<number>(window.innerWidth <= 768 ? 50 : 300);
@@ -84,15 +84,15 @@ const useCanvas = () => {
       {
         name: 'hero',
         condition: (scrollPosition: number) =>
-          scrollPosition < window.innerHeight ||
-          scrollPosition >= 7 * window.innerHeight,
+          scrollPosition < document.documentElement.clientHeight ||
+          scrollPosition >= 7 * document.documentElement.clientHeight,
         getTargetPositions: () => null, // Infinity animation, no fixed targets
       },
       {
         name: 'frontend',
         condition: (scrollPosition: number) =>
-          scrollPosition >= window.innerHeight &&
-          scrollPosition < 2.5 * window.innerHeight,
+          scrollPosition >= document.documentElement.clientHeight &&
+          scrollPosition < 2.5 * document.documentElement.clientHeight,
         getTargetPositions: (centerX: number, centerY: number) => [
           { x: centerX - 200 < 64 ? 64 : centerX - 200, y: centerY },
           {
@@ -108,8 +108,8 @@ const useCanvas = () => {
       {
         name: 'backend',
         condition: (scrollPosition: number) =>
-          scrollPosition >= 2.5 * window.innerHeight &&
-          scrollPosition < 4 * window.innerHeight,
+          scrollPosition >= 2.5 * document.documentElement.clientHeight &&
+          scrollPosition < 4 * document.documentElement.clientHeight,
         getTargetPositions: (centerX: number, centerY: number) => [
           { x: centerX - 200 < 64 ? 64 : centerX - 200, y: centerY * 0.5 },
           {
@@ -125,8 +125,8 @@ const useCanvas = () => {
       {
         name: 'more',
         condition: (scrollPosition: number) =>
-          scrollPosition >= 4 * window.innerHeight &&
-          scrollPosition < 5.5 * window.innerHeight,
+          scrollPosition >= 4 * document.documentElement.clientHeight &&
+          scrollPosition < 5.5 * document.documentElement.clientHeight,
         getTargetPositions: (centerX: number, centerY: number) => [
           { x: centerX, y: centerY },
           {
@@ -142,8 +142,8 @@ const useCanvas = () => {
       {
         name: 'projects',
         condition: (scrollPosition: number) =>
-          scrollPosition >= 5.5 * window.innerHeight &&
-          scrollPosition < 7 * window.innerHeight,
+          scrollPosition >= 5.5 * document.documentElement.clientHeight &&
+          scrollPosition < 7 * document.documentElement.clientHeight,
         getTargetPositions: (centerX: number, centerY: number) => [
           {
             x: centerX,
@@ -292,7 +292,7 @@ const useCanvas = () => {
     if (canvas) {
       // Resize canvas to fit the window
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = document.documentElement.clientHeight;
 
       centerXRef.current = canvas.width / 2;
       centerYRef.current = canvas.height / 2;
