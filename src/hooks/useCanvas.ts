@@ -293,6 +293,7 @@ const useCanvas = () => {
       // Resize canvas to fit the window
       canvas.width = window.innerWidth;
       canvas.height = document.documentElement.clientHeight;
+      canvas.style.top = '0';
 
       centerXRef.current = canvas.width / 2;
       centerYRef.current = canvas.height / 2;
