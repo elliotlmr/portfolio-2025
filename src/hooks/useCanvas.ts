@@ -314,6 +314,7 @@ const useCanvas = () => {
     }
 
     window.addEventListener('resize', () => resize());
+    window.addEventListener('scroll', () => resize());
 
     //? Uncomment for point / player
     // window.addEventListener('keydown', handleKeydown);
@@ -324,6 +325,7 @@ const useCanvas = () => {
         cancelAnimationFrame(animationID.current);
       }
       window.removeEventListener('resize', () => resize());
+      window.removeEventListener('scroll', () => resize());
 
       //? Uncomment for point / player
       // window.removeEventListener('keydown', handleKeydown);
